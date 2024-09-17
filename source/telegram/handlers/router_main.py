@@ -10,6 +10,7 @@ router = Router()
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
+
     await start_def(message)
 
 
