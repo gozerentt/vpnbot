@@ -2,6 +2,8 @@ import datetime
 import json
 import requests
 import uuid
+from db import add_user_into_db
+
 
 
 class X3:
@@ -173,8 +175,11 @@ class X3:
             dict_x[i['email']] = z.days
         return dict_x
 
-vpn=X3()
-print(vpn.test_connect())
-print(vpn.addClient(31,1324103345,'andy'))
-# print(vpn.list())
-print(vpn.link('andy'))
+    #Добавить клиента в впн и бд
+    def add_x3_db(self,tg_id,tg_name):
+        self.addClient(31,tg_id,tg_name)
+        add_user_into_db(tg_id,datetime.datetime.now().strftime("%Y-%m-%d"),str(vpn.link(tg_name)))
+
+
+
+
